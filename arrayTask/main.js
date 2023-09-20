@@ -15,8 +15,8 @@ document.getElementById('task3').textContent = names.length;
 console.log(names.length);
 // Task 4
 // Print the last item of the array
-document.getElementById('task4').textContent = names[4];
-console.log(names[4]);
+document.getElementById('task4').textContent = names[names.length - 1];
+
 // Task 5
 // Add Peter as the last item to the array and print the whole array
 names.push('Peter');
@@ -54,10 +54,5 @@ document.getElementById('task10').textContent = numbers.join(' ');
 // Task 11
 // Find the largest and smallest value from the numbers array using sort() function.
 // Print those values.
-// smalest one
-const solution = [];
-const smalest = numbers.sort((a, b) => (a - b));
-solution.push(smalest[0]);
-solution.push(smalest[smalest.length - 1]);
-console.log(smalest.length);
-document.getElementById("task11").textContent = solution;
+numbers.sort((a, b) => (b - a));
+document.getElementById('task11').textContent = `Largest: ${numbers[0]} Smallest: ${numbers[numbers.length - 1]}`
