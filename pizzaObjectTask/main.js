@@ -3,6 +3,7 @@
 const extraToppings = 50;
 const numberOfFreeToppings = 4;
 // without constructor
+// class declaration
 class Pizza {
     name;
     toppings = [];
@@ -10,10 +11,11 @@ class Pizza {
     size = 'S';
 
     constructor(name, toppings, basePrice) {
-        this.name = name;
+        this.name = name; // we set the property of the object
         this.toppings = toppings;
         this.basePrice = basePrice;
 }
+// methods will be added to .prototype property. Will be the prototype of the object created by the class Pizza.
         getPrice() {
            let extraToppings = this.toppings.length - numberOfFreeToppings;
            if (extraToppings < 0) {
@@ -32,31 +34,43 @@ console.log(americano1.getPrice());
 
 //Write code which models an order to a pizza place as a class. The order has a customer name, delivery type, and there can be several pizzas in one order. 
 // Order can be updated by adding pizzas to it with a method of the order class.
-const deliveryHome = 5;
+const deliveryHome = 10;
+const pizzaPrice = 100;
 
 class PizzaOrder {
     customerName = ''; 
     deliveryType = 'EAT_IN'; // other values are TAKE_OUT, DELIVERY. It is not for user.
-pizzas = [];
+    pizzas = [];
 
-constructor(customerName, deliveryType) {
+constructor(customerName, deliveryType, pizzas) {
     this.customerName = customerName;
     this.deliveryType = deliveryType;
-    this.basePrice = 0;
+    this.pizzas= pizzas;
 }
 
 addPizza(pizza) {
     this.pizzas.push(pizza);
-    for (const pizza of the) {
-
-    }
 }
+
 getPrice() {
     let totalPrice = 0;
     //1) check delivery type and add delivery fee if needed
     //2) loop over the pizzas and sum up their prices
-    return totalPrice;
-}
-}
-let newPiza = new Pizza('hawai', ['pineapple'], 1000)
-let secondPizza = new Pizza()
+    for (const pizza of this.pizzas) {
+    if (deliveryType === 'deliveryHome') {
+         totalPrice +=10;
+         totalPrice += pizzaPrice;
+        }
+        return totalPrice;
+    }
+} }
+const firstPizzaOrder = new PizzaOrder('Alona', 'deliveryHome', ['Pia', 'Tantarella', 'Italiano']);
+const secondPizzaOrder = new PizzaOrder('Oleh', 'eatIn', ['Oliva', 'Fromage', 'Mozarella']);
+const thirdPizzaOrder = new PizzaOrder('Ilona', 'take', ['Italia', 'Paprika', 'Spicy']);
+firstPizzaOrder.addPizza();
+firstPizzaOrder.getPrice();
+secondPizzaOrder.addPizza();
+secondPizzaOrder.getPrice();
+thirdPizzaOrder.addPizza();
+thirdPizzaOrder.getPrice();
+console.log(firstPizzaOrder);
